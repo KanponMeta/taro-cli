@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'capsio_frontend_cli',
   date: '2023-10-24',
@@ -8,8 +10,16 @@ const config = {
     828: 1.81 / 2
   },
   sourceRoot: 'src',
-  outputRoot: 'dist',
-  plugins: [],
+  outputRoot: `dist/${process.env.TARO_ENV}`,
+  plugins: [
+    [
+      '@tarojs/plugin-platform-lark',
+      // 插件选项
+      {
+        pc: false,
+      },
+    ],
+  ],
   defineConstants: {
   },
   copy: {
@@ -47,7 +57,7 @@ const config = {
     }
   },
   h5: {
-    publicPath: '/',
+    publicPath: './',
     staticDirectory: 'static',
     postcss: {
       autoprefixer: {
@@ -83,6 +93,15 @@ const config = {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
       }
     }
+  },
+  alias: {
+    '@/global': path.resolve(__dirname, '..', 'src/global'),
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@/assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@/service': path.resolve(__dirname, '..', 'src/service'),
+    '@/store': path.resolve(__dirname, '..', 'src/store'),
+    // 'expo-linear-gradient': 'react-native-linear-gradient',
   }
 }
 

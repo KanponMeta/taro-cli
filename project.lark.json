@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "dist/lark",
+  "projectname": "taro-lark",
+  "description": "taro-lark",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
