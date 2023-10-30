@@ -1,0 +1,14 @@
+@import '@/global/styles/layout.scss';
+@import '@/global/styles/color.scss';
+
+.config {
+  margin: $component-margin;
+
+  &-item {
+    margin-top: $component-margin;
+
+    &-description {
+      font-size: $component-font-size;
+    }
+  }
+}
