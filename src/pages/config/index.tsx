@@ -5,7 +5,8 @@ import type {Config, Platform} from '@/global/types/config';
 import {useAppDispatch, useAppSelector} from '@/store/hooks';
 import {selectLocalConfig, setStoreLocalConfig} from '@/store/localConfig';
 
-import {AtRadio} from '@/components/kanpon-ui/index';
+// import {} from '@/components/kanpon-ui/index';
+import { AtRadio } from 'taro-ui'
 import {View} from '@tarojs/components';
 
 import './index.scss';
@@ -37,6 +38,10 @@ const ConfigPage = () => {
             {label: '苹果手机', value: 'iosMobile'},
             {label: '安卓手机', value: 'androidMobile'},
             {label: 'PDA设备', value: 'pda'},
+            {label: '微信小程序', value: 'weapp'},
+            {label: '飞书小程序', value: 'lark'},
+            {label: '网页', value: 'h5'},
+
           ]}
           value={config.platform}
           onClick={value => {

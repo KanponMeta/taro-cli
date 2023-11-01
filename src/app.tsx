@@ -3,6 +3,7 @@ import {Provider} from 'react-redux';
 // import SplashScreen from 'react-native-splash-screen';
 
 import { updateLoginState } from '@/store/login';
+import {initialStoreLocalConfig} from '@/store/localConfig';
 import store from '@/store/index';
 
 import './app.scss'
@@ -11,6 +12,7 @@ class App extends Component<PropsWithChildren> {
 
   componentDidMount () {
     store.dispatch(updateLoginState());
+    store.dispatch(initialStoreLocalConfig())
   }
 
   componentDidShow () {}

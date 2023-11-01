@@ -1,0 +1,9 @@
+@import '@/global/styles/layout.scss';
+scanner-input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $component-radius;
+  color: #fff;
+}

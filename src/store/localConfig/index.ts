@@ -4,11 +4,16 @@ import type {Config, Platform} from '@/global/types/config';
 
 import Taro from '@tarojs/taro';
 
-import {configs} from 'src/pages/config/config';
+import {configs} from '../../pages/config/config';
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
 const LOCAL_CONFIG_KEY = 'localConfig';
+/**
+ * Initializes the platform based on the Taro environment variable.
+ * @returns The platform name.
+ */
 const initPlatform = (): Platform => {
+  console.log('当前环境：', process.env.TARO_ENV);
   switch (process.env.TARO_ENV) {
     case 'weapp':
       return 'weapp';
@@ -66,6 +71,7 @@ const localConfigSlice = createSlice({
       .addCase(initialStoreLocalConfig.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || 'unknown error';
+        state.data = {...state, platform: initPlatform()};
       });
   },
 });
@@ -74,7 +80,7 @@ const localConfigSlice = createSlice({
 export const {setStoreLocalConfig} = localConfigSlice.actions;
 // 选择器等其他代码可以使用导入的 `RootState` 类型
 export const selectLocalConfig = (state: RootState) => state.localConfig.data;
-export const selectIsLocalPlatform = (state: RootState): boolean =>
+export const selectIsPDA = (state: RootState): boolean =>
   state.localConfig.data.platform === 'pda';
 
 export const initialStoreLocalConfig = createAsyncThunk(
