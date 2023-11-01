@@ -34,7 +34,9 @@ const Scanner = (props: ScannerProps) => {
       onlyFromCamera: true,
       success: res => {
         setCode(res?.result);
-      },
+      }
+    }).catch(err => {
+      console.log(err);
     });
   };
   //#endregion

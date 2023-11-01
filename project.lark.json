@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/lark",
   "projectname": "taro-lark",
   "description": "taro-lark",
-  "appid": "touristappid",
+  "appid": "cli_a5cb41d5aa70d00b",
   "setting": {
     "urlCheck": true,
     "es6": true,
