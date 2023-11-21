@@ -45,7 +45,7 @@ const Scanner = (props: ScannerProps) => {
   return (
     <View className={rootClass}>
       {isPDA ? (
-        <Button className='scanner-input'>
+        <Button className={rootClass+ "-input"}>
           <Input
             type='text'
             placeholder={props.title}
@@ -60,8 +60,8 @@ const Scanner = (props: ScannerProps) => {
           />
         </Button>
       ) : (
-        <Button className='scanner-input' onClick={phoneScanAction}>
-          <Text style={{color: '#707070'}}>{props.title}</Text>
+        <Button className={rootClass+ "-input"} onClick={phoneScanAction}>
+          <Text className={rootClass+ "-input-text"} style={{color: '#707070'}}>{props.title}</Text>
         </Button>
       )}
     </View>

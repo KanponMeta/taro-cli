@@ -51,8 +51,8 @@ const Index = () => {
       <View>{getEnv()}</View>
       <View>{'登录信息:' + logininfo() + '\n'}</View>
       <View>{'扫码信息:' + code + '\n'}</View>
-      <Scanner className='scanner' title='扫码录入' onScanCode={setCode} />
-      <Button onClick={jumpToConfig}>进入配置页</Button>
+      <Scanner className='tt' title='扫码录入' onScanCode={setCode} />
+      <Button className='btn' onClick={jumpToConfig}>进入配置页</Button>
     </View>
   );
 };

@@ -1,3 +1,24 @@
-.scanner {
+.tt {
+  margin: 20px;
+  width: 50%;
+
+  &-input {
+    background-color: green;
+
+    &-text {
+      background-color: white;
+    }
+  }
+}
+
+
+.index {
   background-color: blue;
+  color: aqua;
+
+}
+
+.btn {
+  background-color: red;
+  color: aqua;
 }

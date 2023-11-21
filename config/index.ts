@@ -70,7 +70,7 @@ const config = {
     esnextModules: ['taro-ui'],
   },
   rn: {
-    appName: 'taroDemo',
+    appName: 'capsio_frontend_cli',
     output: {
       ios: './ios/main.jsbundle',
       iosAssetsDest: './ios',
