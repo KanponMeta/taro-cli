@@ -1,4 +1,5 @@
-import type {Config} from '@/global/types/config';
+import type {Config} from '@/types/config';
+
 
 export const configs: Config = {
     platform: 'weapp',

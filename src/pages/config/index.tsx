@@ -1,11 +1,10 @@
 import {useEffect, useState} from 'react';
 
-import type {Config, Platform} from '@/global/types/config';
+import type {Config, Platform} from '@/types/config';
 
 import {useAppDispatch, useAppSelector} from '@/store/hooks';
 import {selectLocalConfig, setStoreLocalConfig} from '@/store/localConfig';
 
-// import {} from '@/components/kanpon-ui/index';
 import { AtRadio } from 'taro-ui'
 import {View} from '@tarojs/components';
 

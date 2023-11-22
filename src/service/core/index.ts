@@ -39,7 +39,7 @@ class KpRequest {
     T = any,
     U extends string | TaroGeneral.IAnyObject | ArrayBuffer = any | any
   >(base: KpRequestBase, options?: Option<T, U>) {
-    return this.request<T, U>(base, "GET", options);
+    return this.request(base, "GET", options);
   }
 
   patch<
@@ -72,20 +72,3 @@ class KpRequest {
 }
 
 export default new KpRequest();
-
-export interface Response {
-  success: boolean;
-  message?: string;
-}
-
-export enum HTTP_STATUS {
-  SUCCESS = 200,
-  CLIENT_ERROR = 400,
-  AUTHENTICATE = 401,
-  FORBIDDEN = 403,
-  NOT_FOUND = 404,
-  SERVER_ERROR = 500,
-  BAD_GATEWAY = 502,
-  SERVICE_UNAVAILABLE = 503,
-  GATEWAY_TIMEOUT = 504,
-}

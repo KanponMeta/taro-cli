@@ -1,6 +1,6 @@
 import type {PayloadAction} from '@reduxjs/toolkit';
 import type {RootState} from '../index';
-import type {Config, Platform} from '@/global/types/config';
+import type {Config, Platform} from '@/types/config';
 
 import Taro from '@tarojs/taro';
 

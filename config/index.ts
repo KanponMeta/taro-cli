@@ -94,16 +94,16 @@ const config = {
     enableSvgTransform: true,
   },
   alias: {
-    '@/global': path.resolve(__dirname, '..', 'src/global'),
-    '@/components': path.resolve(__dirname, '..', 'src/components'),
-    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
     '@/assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
     '@/service': path.resolve(__dirname, '..', 'src/service'),
     '@/store': path.resolve(__dirname, '..', 'src/store'),
+    '@/styles': path.resolve(__dirname, '..', 'src/styles'),
+    '@/types': path.resolve(__dirname, '..', 'src/types'),
+    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
     '~taro-ui/dist': `${
       process.env.Taro_ENV === 'rn' ? '~taro-ui/rn' : '~taro-ui/dist'
     }`,
-    // 'expo-linear-gradient': 'react-native-linear-gradient',
   },
 };
 

@@ -22,14 +22,15 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@/global/*": ["./src/global/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/utils/*": ["./src/utils/*"],
       "@/assets/*": ["./src/assets/*"],
+      "@/components/*": ["./src/components/*"],
       "@/service/*": ["./src/service/*"],
       "@/store/*": ["./src/store/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/utils/*": ["./src/utils/*"],
     },
   },
-  "include": ["./src", "./types"],
+  "include": ["./src", "./src/types"],
   "compileOnSave": false
 }

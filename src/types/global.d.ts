@@ -1,4 +1,4 @@
-/// <reference path="../node_modules/@tarojs/plugin-platform-lark/types/shims-lark.d.ts" />
+/// <reference path="../../node_modules/@tarojs/plugin-platform-lark/types/shims-lark.d.ts" />
 /// <reference types="@tarojs/taro" />
 
 declare module '*.png';
@@ -18,3 +18,20 @@ declare namespace NodeJS {
   }
 }
 
+export interface NormalResponse {
+  success: boolean;
+  type: string
+  data: any
+}
+
+export enum HTTP_STATUS {
+  SUCCESS = 200,
+  CLIENT_ERROR = 400,
+  AUTHENTICATE = 401,
+  FORBIDDEN = 403,
+  NOT_FOUND = 404,
+  SERVER_ERROR = 500,
+  BAD_GATEWAY = 502,
+  SERVICE_UNAVAILABLE = 503,
+  GATEWAY_TIMEOUT = 504,
+}

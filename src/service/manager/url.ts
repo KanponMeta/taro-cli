@@ -3,14 +3,14 @@ const urlMap: Record<string, {test: string; prod: string}> = {
     test: 'http://127.0.0.1:8000/token',
     prod: ''
   },
- 
+
 };
 
 export function getBaseUrl(type: string) {
   const urls = urlMap[type];
-  // if (process.env.NODE_ENV === 'production') {
-  //   return urls.prod;
-  // }
+  if (process.env.NODE_ENV === 'production') {
+    return urls.prod;
+  }
   return urls.test;
 }
 
