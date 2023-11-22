@@ -19,7 +19,8 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "./src/types"
     ],
     "paths": {
       "@/assets/*": ["./src/assets/*"],
@@ -31,6 +32,7 @@
       "@/utils/*": ["./src/utils/*"],
     },
   },
-  "include": ["./src", "./src/types"],
+  "include": ["./src", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.test.tsx"],
   "compileOnSave": false
 }

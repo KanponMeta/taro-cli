@@ -36,3 +36,5 @@ export const {setStoreNormal} = normalSlice.actions;
 export const selectOperator = (state: RootState) => state.normal.data;
 
 export default normalSlice.reducer;
+
+const a: NormalResponse

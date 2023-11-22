@@ -18,7 +18,7 @@ declare namespace NodeJS {
   }
 }
 
-export interface NormalResponse {
+declare interface NormalResponse {
   success: boolean;
   type: string
   data: any

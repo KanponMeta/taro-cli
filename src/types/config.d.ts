@@ -1,4 +1,4 @@
-export type Platform =
+declare type Platform =
   | 'weapp'
   | 'lark'
   | 'h5'
@@ -8,6 +8,6 @@ export type Platform =
   | 'iosMobile'
   | 'iosPad';
 
-export interface Config {
+declare interface Config {
   platform: Platform;
 }
