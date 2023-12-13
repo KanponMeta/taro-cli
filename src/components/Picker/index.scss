@@ -1,0 +1,25 @@
+@import '@/styles/layout.scss';
+@import '@/styles/color.scss';
+
+.picker {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: $component-gap-inner;
+  border-width: 1px;
+  border-color: $input-color;
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &-text {
+      width: 90%;
+      font-size: $component-input-size;
+      color: $input-color;
+    }
+  }
+}
