@@ -32,7 +32,7 @@
       "@/utils/*": ["./src/utils/*"],
     },
   },
-  "include": ["./src", "src/**/*.d.ts"],
+  "include": ["./src", "src/types/*.d.ts"],
   "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.test.tsx"],
   "compileOnSave": false
 }
