@@ -1,11 +1,9 @@
-import type { NormalResponse } from '@/types/global';
-
 import KpRequest from '@/service/core/index';
 import {getBaseUrl} from '@/service/manager/url';
 import store from '@/store/index';
-import { setStoreNormal } from '@/store/normal';
+import { storageNormal } from '@/store/normal';
 
-export async function getNormal(): Promise<NormalResponse> {
+export async function getNormal(): Promise<NormalResponse<string>> {
   const response = await KpRequest.get(
     {
       url: getBaseUrl('normal'),
@@ -36,7 +34,7 @@ export async function getNormal(): Promise<NormalResponse> {
     };
   });
 
-  store.dispatch(setStoreNormal(normals));
+  store.dispatch(storageNormal(normals));
   return new Promise((resolve) => {
     resolve({
       data: normals,

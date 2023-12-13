@@ -1,6 +1,5 @@
 import type {PayloadAction} from '@reduxjs/toolkit';
 import type {RootState} from '../index';
-import type {Config, Platform} from '@/types/config';
 
 import Taro from '@tarojs/taro';
 
@@ -44,7 +43,7 @@ const localConfigSlice = createSlice({
   name: LOCAL_CONFIG_KEY,
   initialState,
   reducers: {
-    setStoreLocalConfig: (
+    storageLocalConfig: (
       state: LocalConfigState,
       action: PayloadAction<Config>,
     ) => {
@@ -77,7 +76,7 @@ const localConfigSlice = createSlice({
 });
 
 // 每个 case reducer 函数会生成对应的 Action creators
-export const {setStoreLocalConfig} = localConfigSlice.actions;
+export const {storageLocalConfig} = localConfigSlice.actions;
 // 选择器等其他代码可以使用导入的 `RootState` 类型
 export const selectLocalConfig = (state: RootState) => state.localConfig.data;
 export const selectIsPDA = (state: RootState): boolean =>

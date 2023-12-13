@@ -1,9 +1,6 @@
 import {useEffect, useState} from 'react';
-
-import type {Config, Platform} from '@/types/config';
-
 import {useAppDispatch, useAppSelector} from '@/store/hooks';
-import {selectLocalConfig, setStoreLocalConfig} from '@/store/localConfig';
+import {selectLocalConfig, storageLocalConfig} from '@/store/localConfig';
 
 import { AtRadio } from 'taro-ui'
 import {View} from '@tarojs/components';
@@ -24,7 +21,7 @@ const ConfigPage = () => {
   // 退出配置页面
   useEffect(() => {
     return () => {
-      dispatch(setStoreLocalConfig(config));
+      dispatch(storageLocalConfig(config));
     };
   });
 
