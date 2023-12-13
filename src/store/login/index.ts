@@ -1,10 +1,11 @@
-import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../index";
+import type {PayloadAction} from '@reduxjs/toolkit';
+import type {RootState} from '../index';
 
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {login} from "@/service/login";
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {login} from '@/service/login';
 
 interface Login {
+  token: string;
   username: string;
   password: string;
 }
@@ -18,54 +19,58 @@ interface LoginState {
 // 使用该类型定义初始 state
 const initialState: LoginState = {
   loading: false,
-  error: "",
+  error: '',
   data: {
-    username: "",
-    password: "",
+    token: '',
+    username: '',
+    password: '',
   },
 };
 
 const loginSlice = createSlice({
-  name: "login",
+  name: 'login',
   initialState,
   reducers: {
     // Redux Toolkit 允许我们在 reducers 写 "可变" 逻辑。它
     // 并不是真正的改变状态值，因为它使用了 Immer 库
     // 可以检测到“草稿状态“ 的变化并且基于这些变化生产全新的
     // 不可变的状态
-    setStoreLogin: (state, action: PayloadAction<Login>) => {
-      return { ...state, ...action.payload };
+    storageLogin: (state, action: PayloadAction<Login>) => {
+      return {...state, ...action.payload};
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(updateLoginState.pending, (state) => {
+      .addCase(updateLoginState.pending, state => {
         state.loading = true;
-        console.log("loading")
+        console.log('loading');
       })
       .addCase(updateLoginState.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload.data as unknown as Login;
-        console.log("fulfilled", action.payload.data)
+        state.data = {
+          ...state.data,
+          token: `Zoho-oauthtoken ${action.payload.access_token}`,
+        } as Login;
+        console.log('fulfilled', action.payload);
       })
       .addCase(updateLoginState.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || "unknown error";
-        console.log("rejected", action.error.message)
+        state.error = action.error.message || 'unknown error';
+        console.log('rejected', action.error.message);
       });
   },
 });
 
 export const updateLoginState = createAsyncThunk(
-  "login/updateLoginState",
+  'login/updateLoginState',
   async () => {
-    const response = login();
-    return response
-  }
+    const response = await login();
+    return response.data;
+  },
 );
 
 // 每个 case reducer 函数会生成对应的 Action creators
-export const { setStoreLogin } = loginSlice.actions;
+export const {storageLogin} = loginSlice.actions;
 // 选择器等其他代码可以使用导入的 `RootState` 类型
 export const selectLogin = (state: RootState) => state.login.data;
 
