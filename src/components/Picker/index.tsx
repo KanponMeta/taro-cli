@@ -18,13 +18,15 @@ const Picker: ComponentType<
     | PickerDateProps
     | PickerRegionProps
     | PickerSelectorProps
-  ) & {content: string}
+  ) & {content: string; placeholder?: string}
 > = props => {
   return (
     <View className='picker'>
       <TaroPicker {...props}>
         <View className='picker-content'>
-          <View className='picker-content-text'>{props.content}</View>
+          <View className='picker-content-text'>
+            {props.content || props?.placeholder || ''}
+          </View>
           <AtIcon value='chevron-down' size='20' color='#a8a8a8' />
         </View>
       </TaroPicker>

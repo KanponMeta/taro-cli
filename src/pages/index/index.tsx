@@ -6,8 +6,11 @@ import {selectLogin} from '@/store/login';
 
 import {View, Text, Button} from '@tarojs/components';
 import Scanner from '@/components/scanner';
+import Picker from '@/components/Picker';
+import DatePicker from '@/components/DatePicker';
 
 import './index.scss';
+import dayjs from 'dayjs';
 
 const Index = () => {
   // 环境信息
@@ -17,7 +20,7 @@ const Index = () => {
 
     try {
       const deviceInfo = Taro.getSystemInfoSync();
-      return `当前环境: ${deviceInfo?.platform}`
+      return `当前环境: ${deviceInfo?.platform}`;
     } catch (e) {
       console.log(e);
     }
@@ -46,13 +49,34 @@ const Index = () => {
     console.log('code', code);
   }, [code]);
 
+  // picker
+  const pickerSelector = ['选项一', '选项二', '选项三'];
+  const [pickerContent, setPickerContent] = useState('');
+
+  // DatePacker
+  const [pickerDate, setPickerDate] = useState('');
+
   return (
     <View className='index'>
       <View>{getEnv()}</View>
       <View>{'登录信息:' + logininfo() + '\n'}</View>
       <View>{'扫码信息:' + code + '\n'}</View>
       <Scanner className='tt' title='扫码录入' onScanCode={setCode} />
-      <Button className='btn' onClick={jumpToConfig}>进入配置页</Button>
+      <Button className='btn' onClick={jumpToConfig}>
+        进入配置页
+      </Button>
+      <Picker
+        mode='selector'
+        content={pickerContent}
+        range={pickerSelector}
+        placeholder='请选择'
+        onChange={e => {
+          setPickerContent(pickerSelector[e.detail.value]);
+        }}
+      ></Picker>
+      <DatePicker value={dayjs(pickerDate)} dayRange={10} onDateChange={(value) => {
+        setPickerDate(dayjs(value).format('YYYY-MM-DD HH:mm:ss'));
+      }}></DatePicker>
     </View>
   );
 };
